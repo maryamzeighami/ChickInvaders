@@ -15,4 +15,5 @@ public class Constants {
     public static final int TEMPERATURE_LIMIT = 400;
     public static final int TEMPERATURE_PAST_LIMIT = 1500;
     public static final int TEMPERATURE_TO_ZERO_LIMIT = 1300;
+    public static final int CHICKEN_SIZE = 30;
 }

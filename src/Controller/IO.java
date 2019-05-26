@@ -17,7 +17,7 @@ public class IO {
         // reading game.data
         FileReader fr = null;
         try {
-            fr = new FileReader(System.getProperty("user.dir") + "\\save\\game.data");
+            fr = new FileReader(System.getProperty("user.dir") + "/save/game.data");
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }

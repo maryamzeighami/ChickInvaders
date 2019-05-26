@@ -16,6 +16,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
 import models.AttackSystem;
+import models.EnemySystem;
 import models.Player;
 
 import java.io.File;
@@ -33,8 +34,18 @@ public class GameSceneBuilder {
 
     // AttackSystem
     AttackSystem attackSystem = new AttackSystem();
+    EnemySystem enemySystem = new EnemySystem();
 
     public GameSceneBuilder builder(Player player) {
+
+
+
+        enemySystem.add(35,1);
+
+
+
+
+
         // --- set pictures ---
 
         // background
@@ -114,6 +125,7 @@ public class GameSceneBuilder {
 
         stackPane.getChildren().add(new ImageView(background));
         stackPane.getChildren().addAll(infoVBox, mainVBox);
+        stackPane.getChildren().addAll(enemySystem.add(45,1));
         scene = new Scene(stackPane, Constants.GAME_SCENE_WIDTH, Constants.GAME_SCENE_HEIGHT);
 
         // TODO: 4/20/2019 replace with actual fire system
