@@ -2,10 +2,7 @@ package models;
 
 
 import Controller.Constants;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-
-import java.io.File;
 
 
 public class EnemySystem {
@@ -14,19 +11,20 @@ public class EnemySystem {
     int colum;
 
 
-    Chicken[] chickens = new Chicken1[number];
+    Chicken[] chickens;
+
 
     public ImageView[] add(int numbers, int level) {
-        this.number=numbers;
+        this.number = numbers;
+        chickens = new Chicken[number];
 
-        if (number>=40){
-            colum=9;
-        } else if (number>30){
-            colum=8;
+        if (number >= 40) {
+            colum = 9;
+        } else if (number > 30) {
+            colum = 8;
         } else {
-            colum= 7;
+            colum = 7;
         }
-
 
 
         switch (level) {
@@ -44,10 +42,10 @@ public class EnemySystem {
             case 2:
 
                 for (int i = 0; i < numbers; i++) {
-                    if (i< numbers/2) {
+                    if (i < numbers / 2) {
                         chickens[i] = new Chicken1();
                     } else {
-                        chickens[i]= new Chicken2();
+                        chickens[i] = new Chicken2();
 
                     }
 
@@ -61,10 +59,10 @@ public class EnemySystem {
                 }
             case 3:
                 for (int i = 0; i < numbers; i++) {
-                    if (i<numbers/3) {
+                    if (i < numbers / 3) {
                         chickens[i] = new Chicken1();
 
-                    } else if (i<(numbers/3)*2){
+                    } else if (i < (numbers / 3) * 2) {
                         chickens[i] = new Chicken2();
 
                     } else {
@@ -80,22 +78,21 @@ public class EnemySystem {
                     chickens[i].setTranslateY((i / colum) * Constants.CHICKEN_SIZE + 30);
 
                 }
-            case 4 :
+            case 4:
                 for (int i = 0; i < numbers; i++) {
-                    if (i<numbers/4) {
+                    if (i < numbers / 4) {
                         chickens[i] = new Chicken1();
 
-                    } else if (i<(numbers/4)*2){
+                    } else if (i < (numbers / 4) * 2) {
                         chickens[i] = new Chicken2();
 
-                    } else if (i<(numbers/4)*3){
+                    } else if (i < (numbers / 4) * 3) {
                         chickens[i] = new Chicken3();
 
                     } else {
                         chickens[i] = new Chicken4();
 
                     }
-
 
 
                 }
