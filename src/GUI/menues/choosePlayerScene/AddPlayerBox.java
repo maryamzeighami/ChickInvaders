@@ -37,7 +37,7 @@ public class AddPlayerBox {
 
 
 
-        Button addBut = new Button("add");
+        Button addBut = new Button("addRec");
         addBut.setStyle("-fx-background-color: #4e804d");
 
         addBut.setOnAction(event -> {

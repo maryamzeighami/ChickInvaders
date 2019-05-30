@@ -17,7 +17,6 @@ public class Chicken3 extends Chicken {
 
         super(image[0]);
 
-
     }
     public void blink() {
 //        this.image = new ImageView(new Image(new File(System.getProperty("user.dir") + "/src/pics/head2.png").toURI().toString()));

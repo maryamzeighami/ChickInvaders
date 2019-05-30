@@ -36,7 +36,7 @@ public class ChoosePlayerSceneBuilder {
     public ChoosePlayerSceneBuilder build (ArrayList<Player> players) {
 
         //buttons
-        addPlayerBut = new Button("add player");
+        addPlayerBut = new Button("addRec player");
         deletPlayerBut = new Button("delete player");
         enterBut = new Button("enter");
 
@@ -72,7 +72,7 @@ public class ChoosePlayerSceneBuilder {
         });
 
 
-        // add player to list
+        // addRec player to list
         addPlayerBut.setOnAction(event -> {
             add();
         });

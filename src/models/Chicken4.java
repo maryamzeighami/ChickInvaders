@@ -12,10 +12,12 @@ public class Chicken4 extends Chicken {
     static {
     image[0] = new Image(new File(System.getProperty("user.dir") + "/src/pics/head1.png").toURI().toString());
     image[1] = new Image(new File(System.getProperty("user.dir") + "/src/pics/head2.png").toURI().toString());
+
     }
     Chicken4(){
 
         super(image[0]);
+
 
 
     }

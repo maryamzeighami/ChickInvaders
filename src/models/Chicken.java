@@ -19,6 +19,8 @@ public class Chicken extends ImageView {
 
     Chicken(Image image){
         super(image);
+        this.setFitHeight(60);
+        this.setFitWidth(100);
     }
 
 

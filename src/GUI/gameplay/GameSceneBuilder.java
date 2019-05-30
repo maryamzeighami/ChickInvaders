@@ -16,6 +16,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
 import models.AttackSystem;
+import models.Chicken;
 import models.EnemySystem;
 import models.Player;
 
@@ -35,15 +36,11 @@ public class GameSceneBuilder {
     // AttackSystem
     AttackSystem attackSystem = new AttackSystem();
     EnemySystem enemySystem = new EnemySystem();
+    ArrayList<ImageView> chickens;
+    int level;
+    int enemy;
 
     public GameSceneBuilder builder(Player player) {
-
-
-
-        enemySystem.add(35,1);
-
-
-
 
 
         // --- set pictures ---
@@ -121,11 +118,18 @@ public class GameSceneBuilder {
 
         // --- panes ---
         // main stack pain
+
+
         StackPane stackPane = new StackPane();
+
+        chickens = enemySystem.addRec(35, 1);
+        StackPane rec = new StackPane();
+        rec.getChildren().addAll(chickens);
+        rec.setAlignment(Pos.TOP_CENTER);
 
         stackPane.getChildren().add(new ImageView(background));
         stackPane.getChildren().addAll(infoVBox, mainVBox);
-        stackPane.getChildren().addAll(enemySystem.add(45,1));
+        stackPane.getChildren().addAll(rec);
         scene = new Scene(stackPane, Constants.GAME_SCENE_WIDTH, Constants.GAME_SCENE_HEIGHT);
 
         // TODO: 4/20/2019 replace with actual fire system
@@ -178,6 +182,31 @@ public class GameSceneBuilder {
                     attackSystem.increaseTemp();
                     beams.addAll(Arrays.asList(temp));
                     stackPane.getChildren().addAll(temp);
+                }
+
+// todo killing chickens
+                for (int i = 0; i < temp.length; i++) {
+                    for (int i1 = 0; i1 < chickens.size(); i1++) {
+                        if (temp[i].dx == chickens.get(i1).getLayoutX() &&
+                                temp[i].dy == chickens.get(i1).getLayoutY()) {
+                            chickens.remove(chickens.get(i1));
+                            System.out.println("da");
+                            if (chickens.size() == 0 && enemy != 3) {
+                                enemy++;
+                                switch (enemy) {
+                                    case 2:
+                                        chickens = enemySystem.addCircle(45, level);
+
+                                    case 3:
+                                        chickens = enemySystem.addRandom(45, level);
+                                }
+                            } else if (chickens.size() == 0 && enemy == 3) {
+                                level++;
+                                chickens= enemySystem.addRec(45,level);
+                            }
+                        }
+                    }
+
                 }
             }
 
